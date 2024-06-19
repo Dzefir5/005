@@ -6,7 +6,7 @@
 
 
 template <typename T> 
-void PrintTreeFormat(TreeNode<T> *elem, int* format, int format_size)
+void printTreeFormat(TreeNode<T> *elem, int* format, int format_size)
 {   
     if (elem == nullptr)
     {
@@ -18,19 +18,19 @@ void PrintTreeFormat(TreeNode<T> *elem, int* format, int format_size)
         }
         if( format[i]==1 && elem->GetLeft()!=nullptr ){
             std::cout << " (" ;
-            PrintTreeFormat(elem->GetLeft(),format,format_size);
+            printTreeFormat(elem->GetLeft(),format,format_size);
             std::cout << ") " ;
         }
         if( format[i]==2 && elem->GetRight()!=nullptr ){
             std::cout << " [" ;
-            PrintTreeFormat(elem->GetRight(),format,format_size);
+            printTreeFormat(elem->GetRight(),format,format_size);
             std::cout << "] " ;
         }
     }
 }
-template void PrintTreeFormat<int>(TreeNode<int> *elem, int* format, int format_size);
-template void PrintTreeFormat<float>(TreeNode<float> *elem, int* format, int format_size);
-template void PrintTreeFormat<double>(TreeNode<double> *elem, int* format, int format_size);
+template void printTreeFormat<int>(TreeNode<int> *elem, int* format, int format_size);
+template void printTreeFormat<float>(TreeNode<float> *elem, int* format, int format_size);
+template void printTreeFormat<double>(TreeNode<double> *elem, int* format, int format_size);
 
 
 template <typename T> 
@@ -71,7 +71,7 @@ template void WriteTreeTraverse<double>(BinaryTree<double>& tree, int* format,in
 template <typename T> 
 void PrintTreeTraverse(BinaryTree<T>& tree, int* format,int format_size) 
 {   
-    PrintTreeFormat(tree.GetRoot(),format,format_size);
+    printTreeFormat(tree.GetRoot(),format,format_size);
 }
 template void PrintTreeTraverse<int>(BinaryTree<int>& tree, int* format, int format_size);
 template void PrintTreeTraverse<float>(BinaryTree<float>& tree, int* format, int format_size);

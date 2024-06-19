@@ -320,7 +320,7 @@ void TreeTravers(){
     /*for(int i=0;i<3;i++){
         std::cout<<format[i]<<std::endl;
     }*/
-    PrintTreeFormat(tree.GetRoot(),format,3);
+    printTreeFormat(tree.GetRoot(),format,3);
     Delimeter(80,'-');
     PrintTreeHorizontaly(&tree);
     Delimeter(80,'-');

@@ -3,10 +3,10 @@
 
 
 template <typename T> 
-void PrintTreeFormat(TreeNode<T> *elem, int* format, int format_size =3 );
+void printTreeFormat(TreeNode<T> *elem, int* format, int format_size =3 );
 
 template <typename T> 
-void WriteTreeFormat(TreeNode<T> *node,  int* format, int format_size=3,T* array = nullptr , int* index = nullptr  );
+void writeTreeFormat(TreeNode<T> *node,  int* format, int format_size=3,T* array = nullptr , int* index = nullptr  );
 
 template <typename T> 
 void WriteTreeTraverse(BinaryTree<T>& tree, int* format,int format_size=3,T* array = nullptr);

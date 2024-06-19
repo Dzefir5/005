@@ -1,4 +1,4 @@
-
+#include <iostream>
 #include "Tree.h"
 #include <assert.h>
 
