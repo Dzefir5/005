@@ -11,7 +11,7 @@
 template <typename T>
 class TreeNode
 {
-public:
+private:
     T data;
     TreeNode<T> *left;
     TreeNode<T> *right;
@@ -52,6 +52,8 @@ public:
     {
         return this->right;
     }
+    
+    template<class T> friend class BinaryTree;
 };
 
 template <typename T> 
@@ -244,35 +246,32 @@ private:
         delete node;
     }
 public:
-    BinaryTree():root(nullptr),size(0){
-        
-    }
-    BinaryTree(bool (*func)(T,T)):root(nullptr),size(0),comparator(func){
-        
-    }
+    BinaryTree():root(nullptr),size(0){}
+    
+    BinaryTree(bool (*func)(T,T)):root(nullptr),size(0),comparator(func){}
 
     BinaryTree(T* array , int count):root(nullptr),size(0){
         for(int i=0; i< count ; i++){
             this->insert(array[i]);
         }
     }
-    BinaryTree(T* array , int count,bool (*func)(T,T)):root(nullptr),size(0),comparator(func){
+    BinaryTree(T* array , int count,bool (*func)(T,T)):size(0),root(nullptr),comparator(func){
         for(int i=0; i< count ; i++){
             this->insert(array[i]);
         }
     }
-    BinaryTree(const BinaryTree<T>& tree):root(nullptr),size(0),comparator(tree.comparator){
+    BinaryTree(const BinaryTree<T>& tree):size(0),root(nullptr),comparator(tree.comparator){
         this->root = new TreeNode<T>(tree.root);
         size = tree.size;
         copyHelper(tree.root,this->root);
     }
 
-    BinaryTree(const Sequence<T>& seq):root(nullptr),size(0){
+    BinaryTree(const Sequence<T>& seq):size(0),root(nullptr){
         for(int i=0; i< seq.GetLength() ; i++){
             this->insert(seq.Get(i));
         }
     }
-    BinaryTree(const Sequence<T>& seq,bool (*func)(T,T)):root(nullptr),size(0),comparator(func){
+    BinaryTree(const Sequence<T>& seq,bool (*func)(T,T)):size(0),root(nullptr),comparator(func){
         for(int i=0; i< seq.GetLength() ; i++){
             this->insert(seq.Get(i));
         }
